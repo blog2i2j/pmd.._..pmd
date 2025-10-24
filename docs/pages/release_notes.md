@@ -30,6 +30,9 @@ so that it still can be used in a pure Java 8 environment. This allows us to use
 checkstyle version during the build.
 
 ### 🌟 Rules changes
+#### New Rules
+* The new Java rule {% rule java/errorprone/IdenticalConditionalBranches %} finds conditional statements
+  that do the same thing when the condition is true and false. This is either incorrect or redundant.
 
 #### Modified rules
 * {%rule java/codestyle/ConfusingTernary %} has a new property `nullCheckBranch` to control, whether null-checks
@@ -50,8 +53,10 @@ checkstyle version during the build.
   {% rule java/errorprone/AvoidCatchingGenericException %}, which is now configurable.
 
 ### 🐛 Fixed Issues
-* core
+* general
   * [#4714](https://github.com/pmd/pmd/issues/4714): \[core] Allow trailing commas in multivalued properties
+  * [#6012](https://github.com/pmd/pmd/issues/6012): \[pmd-rulesets] Rulesets should be in alphabetical order
+  * [#6073](https://github.com/pmd/pmd/issues/6073): \[doc] Search improvements
 * apex
   * [#5935](https://github.com/pmd/pmd/issues/5935): \[apex] @<!-- -->SuppressWarnings - allow whitespace around comma when suppressing multiple rules
 * apex-design
@@ -80,10 +85,11 @@ checkstyle version during the build.
   * [#6055](https://github.com/pmd/pmd/issues/6055): \[java] UselessPureMethodCall false positive with AtomicInteger::getAndIncrement
   * [#6060](https://github.com/pmd/pmd/issues/6060): \[java] UselessPureMethodCall false positive on ZipInputStream::getNextEntry
   * [#6075](https://github.com/pmd/pmd/issues/6075): \[java] AssignmentInOperand false positive with lambda expressions
+  * [#6083](https://github.com/pmd/pmd/issues/6083): \[java] New rule IdenticalConditionalBranches
 * java-multithreading
   * [#5880](https://github.com/pmd/pmd/issues/5880): \[java] DoubleCheckedLocking is not detected if more than 1 assignment or more than 2 if statements
-* misc
-  * [#6012](https://github.com/pmd/pmd/issues/6012): \[pmd-rulesets] Rulesets should be in alphabetical order
+* plsql-design
+  * [#6077](https://github.com/pmd/pmd/issues/6077): \[plsql] Excessive\*/Ncss\*Count/NPathComplexity include the metric
 
 ### 🚨 API Changes
 
@@ -111,10 +117,13 @@ checkstyle version during the build.
 * [#6059](https://github.com/pmd/pmd/pull/6059): \[java] Fix #6058: DanglingJavadoc FP in module-info files - [Lukas Gräf](https://github.com/lukasgraef) (@lukasgraef)
 * [#6061](https://github.com/pmd/pmd/pull/6061): \[core] chore: Bump minimum Java version required for building to 17 - [Andreas Dangel](https://github.com/adangel) (@adangel)
 * [#6071](https://github.com/pmd/pmd/pull/6071): \[java] Fix #5919: Add integration tests to ClassNamingConventions testClassRegex - [Anton Bobov](https://github.com/abobov) (@abobov)
+* [#6073](https://github.com/pmd/pmd/pull/6073): \[doc] Search improvements - [Andreas Dangel](https://github.com/adangel) (@adangel)
 * [#6074](https://github.com/pmd/pmd/pull/6074): \[apex] Fix @<!-- -->SuppressWarnings with whitespace around comma - [Juan Martín Sotuyo Dodero](https://github.com/jsotuyod) (@jsotuyod)
+* [#6077](https://github.com/pmd/pmd/pull/6077): \[plsql] Excessive*/Ncss*Count/NPathComplexity include the metric - [Andreas Dangel](https://github.com/adangel) (@adangel)
 * [#6078](https://github.com/pmd/pmd/pull/6078): \[java] Fix #6075: Fix FP in AssignmentInOperandRule - [UncleOwen](https://github.com/UncleOwen) (@UncleOwen)
 * [#6080](https://github.com/pmd/pmd/pull/6080): \[java] Fix #6079: IdenticalCatchBranches for overriden method calls - [Zbynek Konecny](https://github.com/zbynek) (@zbynek)
 * [#6082](https://github.com/pmd/pmd/pull/6082): \[java] Fix false positives in UselessPureMethodCall for streams and atomics - [Zbynek Konecny](https://github.com/zbynek) (@zbynek)
+* [#6083](https://github.com/pmd/pmd/pull/6083): \[java] New rule IdenticalConditionalBranches - [Zbynek Konecny](https://github.com/zbynek) (@zbynek)
 * [#6085](https://github.com/pmd/pmd/pull/6085): \[java] Fix false positive for ModifierOrder - [Zbynek Konecny](https://github.com/zbynek) (@zbynek)
 * [#6100](https://github.com/pmd/pmd/pull/6100): \[java] AvoidDeeplyNestedIfStmts: fix false negative with if-else - [Zbynek Konecny](https://github.com/zbynek) (@zbynek)
 * [#6112](https://github.com/pmd/pmd/pull/6112): \[java] DanglingJavadoc: fix false positive for compact constructors - [Zbynek Konecny](https://github.com/zbynek) (@zbynek)
