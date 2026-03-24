@@ -328,7 +328,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.4.0</version>
+                    <version>3.5.0</version>
                     <configuration>
                         <propertiesEncoding>${project.build.sourceEncoding}</propertiesEncoding>
                     </configuration>
@@ -336,7 +336,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
-                    <version>3.6.1</version>
+                    <version>3.6.2</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -1036,7 +1036,7 @@
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
-                <version>5.22.0</version>
+                <version>5.23.0</version>
                 <scope>test</scope>
             </dependency>
 

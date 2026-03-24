@@ -79,12 +79,12 @@ jobs:
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
       - name: Spell Check Repo
+        uses: crate-ci/typos@631208b7aac2daa8b707f55e7331f9112b0e062d #v1.44.0
         # note: don't fail the build on typos, just annotate them
         # so that publish-pull-requests job still runs.
         continue-on-error: true
-        env:
-          TYPOS_GH_ANNOTATE: 1
-        run: .ci/tools/typos.sh
+        with:
+          config: .ci/files/typos.toml
 
   verify:
     needs: compile
@@ -105,7 +105,7 @@ jobs:
           restore-keys: maven-
           path: .m2/repository
           enableCrossOsArchive: true
-      - uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 #v8.0.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c #v8.0.1
         with:
           name: compile-artifact
       - name: Full Build with Maven
@@ -160,7 +160,7 @@ jobs:
           restore-keys: maven-
           path: .m2/repository
           enableCrossOsArchive: true
-      - uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 #v8.0.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c #v8.0.1
         # we can only reuse compile-artifacts under linux due to file timestamp issues and
         # platform specific line endings in test resource files.
         if: ${{ runner.os == 'Linux' }}
@@ -205,10 +205,10 @@ jobs:
           restore-keys: maven-
           path: .m2/repository
           enableCrossOsArchive: true
-      - uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 #v8.0.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c #v8.0.1
         with:
           name: compile-artifact
-      - uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 #v8.0.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c #v8.0.1
         with:
           name: staging-repository
           path: target/staging
@@ -291,7 +291,7 @@ jobs:
           restore-keys: maven-
           path: .m2/repository
           enableCrossOsArchive: true
-      - uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 #v8.0.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c #v8.0.1
         with:
           name: compile-artifact
       - name: Generate rule docs
@@ -302,7 +302,7 @@ jobs:
             -Pgenerate-rule-docs,fastSkip \
             -DskipTests -Dassembly.skipAssembly=true
       - name: Set up Ruby 3.3
-        uses: ruby/setup-ruby@09a7688d3b55cf0e976497ff046b70949eeaccfd #v1.288.0
+        uses: ruby/setup-ruby@319994f95fa847cf3fb3cd3dbe89f6dcde9f178f #v1.295.0
         with:
           ruby-version: 3.3
       - name: Setup bundler
@@ -343,7 +343,7 @@ jobs:
             11
             21
       - name: Set up Ruby 3.3
-        uses: ruby/setup-ruby@09a7688d3b55cf0e976497ff046b70949eeaccfd #v1.288.0
+        uses: ruby/setup-ruby@319994f95fa847cf3fb3cd3dbe89f6dcde9f178f #v1.295.0
         with:
           ruby-version: 3.3
       - uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 #v5.0.3
@@ -355,7 +355,7 @@ jobs:
             .ci/files/vendor/bundle
           key: regressiontester-${{ hashFiles('.ci/files/project-list.xml', '.ci/files/Gemfile.lock') }}
           restore-keys: regressiontester-
-      - uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 #v8.0.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c #v8.0.1
         with:
           name: dist-artifact
           path: pmd-dist/target

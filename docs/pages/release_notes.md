@@ -25,7 +25,9 @@ This is a {{ site.pmd.release_type }} release.
 ### 🚀️ New and noteworthy
 
 ### 🐛️ Fixed Issues
-* java-errprone
+* core
+  * [#6503](https://github.com/pmd/pmd/issues/6503): \[core] Links in HTML report are broken
+* java-errorprone
   * [#6502](https://github.com/pmd/pmd/issues/6502): \[java] CloseResource: False positive for allowedResourceMethodPatterns entries when using unqualified method calls
 
 ### 🚨️ API Changes
