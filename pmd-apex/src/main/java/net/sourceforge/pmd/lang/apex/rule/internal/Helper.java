@@ -49,9 +49,6 @@ public final class Helper {
                 return true;
             }
         }
-
-        final String className = node.getDefiningType();
-        return className.endsWith("Test");
     }
 
     public static boolean foundAnySOQLorSOSL(final ApexNode<?> node) {
