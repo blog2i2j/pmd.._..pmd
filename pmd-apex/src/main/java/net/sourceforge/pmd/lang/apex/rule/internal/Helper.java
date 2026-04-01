@@ -49,6 +49,7 @@ public final class Helper {
                 return true;
             }
         }
+        return false;
     }
 
     public static boolean foundAnySOQLorSOSL(final ApexNode<?> node) {
