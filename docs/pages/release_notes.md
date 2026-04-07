@@ -30,6 +30,7 @@ This is a {{ site.pmd.release_type }} release.
 
 ### ✨️ Merged pull requests
 <!-- content will be automatically generated, see /do-release.sh -->
+* [#6576](https://github.com/pmd/pmd/pull/6576): \[test] chore: Throw a TestAbortedException on disabled tests - [UncleOwen](https://github.com/UncleOwen) (@UncleOwen)
 
 ### 📦️ Dependency updates
 <!-- content will be automatically generated, see /do-release.sh -->
