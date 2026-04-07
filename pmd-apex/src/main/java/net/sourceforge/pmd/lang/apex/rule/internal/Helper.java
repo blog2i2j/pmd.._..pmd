@@ -49,7 +49,7 @@ public final class Helper {
      * It used to do a check if the class name ended in "Test", but that is not specific.
      * @author sergey.gorbaty
      * @author dschach
-     * @since 7.24 No longer check class name. Only isTest() in apex parser is used.
+     * @since 7.24.0 No longer check class name. Only isTest() in apex parser is used.
      * 
      * @param node The node to check
      * @return `true` if test class or method
